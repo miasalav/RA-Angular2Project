@@ -1,0 +1,19 @@
+<div class="page-container arrival">
+    <h1>Register</h1>
+    <form>
+        <fieldset>
+            <input type="text" placeholder="Name" required>
+            <input type="number" placeholder="Age" required>
+            <div class="custom-select">
+              <select>
+                <option value="(none)">Select an Occupation</option>
+                <option *ngFor="let job of allJobs">{{job.name}}</option>
+              </select>
+            </div>
+        </fieldset>
+        <fieldset>
+             <button type="submit" [routerLink]="['/encounters']">Submit</button>
+        </fieldset>
+    </form>
+    
+</div>

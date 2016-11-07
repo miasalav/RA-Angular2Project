@@ -1,0 +1,19 @@
+<div class="page-container">
+  <h1>Report an Alien Encounter</h1>
+  <form>
+    <div>
+      <label for="occupation">Alien Type</label>
+      <div class="custom-select">
+        <select class="form-control">
+          <option value="(none)">Select an Alien</option>
+          <option *ngFor="let alien of allAliens">{{alien.type}}</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <label for="name">Details of Encounter</label>
+      <textarea></textarea>
+    </div>
+    <button [routerLink]="['/encounters']">Submit</button>
+  </form>
+</div>

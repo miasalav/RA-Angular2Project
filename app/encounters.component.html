@@ -1,0 +1,24 @@
+<div class="page-container encounters">
+  <h1 class="inverse">Recent Encounters
+    <span>See an Alien? Report it!</span>
+  </h1>
+	<div class="encounter-div">
+	<ul class="inverse">
+		<li *ngFor="let encounter of allEncounters">
+			<div class="encounter-details">
+				<p>{{encounter.date}}</p>
+				<p>Colonist ID: {{encounter.colonist_id}}</p>
+				<p>Alien Type: {{encounter.atype}}</p>
+				<p>Description: {{encounter.action}}</p>
+			
+			</div>
+			<p class="encounter-resolution">
+			
+			</p>
+		</li>
+	</ul>
+	</div>
+	<footer>
+		<button [routerLink]="['/report']">Report Encounter</button>
+	</footer>
+</div>
