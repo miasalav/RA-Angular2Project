@@ -10,7 +10,7 @@ export class AlienService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private alienUrl = 'https://red-wdp-api.herokuapp.com/api/mars/aliens';  // URL to web api
-  response: Colonists;
+  response: Aliens;
 
   constructor(private http:Http){}     
         

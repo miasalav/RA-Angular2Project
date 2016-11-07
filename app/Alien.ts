@@ -1,5 +1,5 @@
 import { iAlien } from './iAlien';
-import { Alien } from './Alien'
+
 
 export class Alien implements iAlien{
     type: string;
