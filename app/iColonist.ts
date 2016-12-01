@@ -5,4 +5,5 @@ export interface iColonist {
     id: number;
     age: number;
     job: Job;
+    job_id: string;
 }

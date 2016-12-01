@@ -1,19 +1,25 @@
 <div class="page-container">
-  <h1>Report an Alien Encounter</h1>
-  <form>
+  <div class="report-title">
+    <h1>Report an Alien Encounter</h1>
+    <p>Safety on Mars is your responsibility.</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" #reportForm="ngForm">
     <div>
-      <label for="occupation">Alien Type</label>
+      <label for="occupation" [hidden]>Alien Type</label>
       <div class="custom-select">
-        <select class="form-control">
+        <select placeholder="Alien Type" name="atype" class="form-control" id="alienSelect" [(ngModel)]="encounter.atype">
           <option value="(none)">Select an Alien</option>
-          <option *ngFor="let alien of allAliens">{{alien.type}}</option>
+          <option *ngFor="let alien of allAliens" [value]="alien.type">{{alien.type}}</option>
         </select>
       </div>
     </div>
+     
     <div>
-      <label for="name">Details of Encounter</label>
-      <textarea></textarea>
+        <textarea [(ngModel)]="encounter.action" placeholder="Action Taken" name="action" id="action" required #action="ngModel"></textarea>
+        <div [hidden]="action.valid || action.pristine" class="alert alert-danger">
+                      Action is required
+        </div>
     </div>
-    <button [routerLink]="['/encounters']">Submit</button>
+    <button [disabled]="noOccupation || !reportForm.form.valid" type="submit">Submit</button>
   </form>
 </div>

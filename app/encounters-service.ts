@@ -23,6 +23,17 @@ export class EncounterService {
              return x;
 
         }
+
+            newEncounter(encounter: Encounter): Promise<Encounter> {
+                        let headers = new Headers({'Content-Type': 'application/json'});
+                        let body = JSON.stringify({ encounter });
+
+                        return this.http
+                            .post(this.encounterUrl, body, { headers: headers })
+                            .toPromise()
+                            .then(response => response.json().encounter)
+                            .catch(this.handleError);
+                    } 
     
 
         private handleError(error: any): Promise<any> {

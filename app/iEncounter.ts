@@ -1,8 +1,7 @@
 export interface iEncounter {
     
-    id: number;
     date: string;
-    colonist_id: number;
+    colonist_id: string;
     atype: string;
     action: string;
 

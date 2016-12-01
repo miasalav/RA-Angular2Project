@@ -1,19 +1,39 @@
 <div class="page-container arrival">
-    <h1>Register</h1>
-    <form>
-        <fieldset>
-            <input type="text" placeholder="Name" required>
-            <input type="number" placeholder="Age" required>
-            <div class="custom-select">
-              <select>
-                <option value="(none)">Select an Occupation</option>
-                <option *ngFor="let job of allJobs">{{job.name}}</option>
-              </select>
-            </div>
-        </fieldset>
-        <fieldset>
-             <button type="submit" [routerLink]="['/encounters']">Submit</button>
-        </fieldset>
-    </form>
+    <div class="form-container">
+        <h1>Register</h1>
+        <form (ngSubmit)="onSubmit()" #arrivalForm="ngForm">
+            <fieldset>
+
+                <div>
+                    <input type="text" class="form-control"  id="name" placeholder="Name" [(ngModel)]="colonist.name" name="name" required  #name="ngModel">
+                    <div class="invalid-field" [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                            Name is required
+                    </div>
+                </div>
+                
+                <div>
+                    <input type="number" class="form-control" id="age" placeholder="Age" [(ngModel)]="colonist.age" name="age" required #age="ngModel">
+                    <div class="invalid-field" [hidden]="age.valid || age.pristine" class="alert alert-danger">
+                            Age is required
+                    </div>
+                </div>
+
+                <div class="custom-select">
+                <select [(ngModel)]="colonist.job.id" id="age" name="job_name" class="form-control" required #job="ngModel" >
+                    <option value="(none)" disabled selected="true" >Select an Occupation</option>
+                    <option *ngFor="let job of allJobs" [value]="job.id">{{job.name}}</option>
+                </select>
+                </div>
+
+                <div [hidden]="job.valid || job.touched" class="alert alert-danger">
+                        A job has to be selected.
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <button [disabled]="noOccupation || !arrivalForm.form.valid" type="submit" >Submit</button>
+            </fieldset>
+        </form>
+    </div>
     
 </div>

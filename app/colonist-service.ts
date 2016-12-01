@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http}      from '@angular/http';
+import { Headers, Http}  from '@angular/http';
 import { Colonist } from './Colonist';
 import { Colonists } from './Colonists';
 
@@ -22,15 +22,18 @@ export class ColonistService {
                  response => response = response.json()).catch(this.handleError);  
              return x;
 
-             
-
-           /*   return this.http.get(this.jobsUrl)
-               .toPromise()
-               .then(response => response.json().data as Job[])
-               .catch(this.handleError);
-        */    
-        }
+            }
     
+            newColonist(colonist: Colonist): Promise<Colonist> {
+                let headers = new Headers({'Content-Type': 'application/json'});
+                let body = JSON.stringify({ colonist });
+
+                return this.http
+                    .post(this.colonistUrl, body, { headers: headers })
+                    .toPromise()
+                    .then(response => response.json().colonist)
+                    .catch(this.handleError);
+            } 
 
         private handleError(error: any): Promise<any> {
             console.error('An error occurred', error); // for demo purposes only

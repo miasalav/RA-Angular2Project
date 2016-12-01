@@ -5,6 +5,7 @@ import { Colonist } from './Colonist';
 import { EncounterService } from './encounters-service';
 import { Encounters } from './Encounters';
 import { Encounter } from './Encounter';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/toPromise';
 
 
@@ -27,5 +28,18 @@ export class EncountersComponent implements OnInit{
      this.encounterService.getEncounters().then( (j) => { this.allEncounters = j.encounters ; console.log(this.allEncounters)} );
 
     }
+
+    
+    /* add(name: string): void {
+        name = name.trim();
+        if (!name) { return; }
+        this.encounterService.create(name)
+            .then(encounter => {
+            this.encounters.push(encounter);
+            this.selectedHero = null;
+            });
+        }
+
+        */
 
 }

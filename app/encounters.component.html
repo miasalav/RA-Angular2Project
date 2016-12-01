@@ -1,20 +1,18 @@
 <div class="page-container encounters">
-  <h1 class="inverse">Recent Encounters
+  
+	<header><h1 class="inverse">Recent Encounters
     <span>See an Alien? Report it!</span>
   </h1>
+	</header>
+
 	<div class="encounter-div">
 	<ul class="inverse">
-		<li *ngFor="let encounter of allEncounters">
+		<li *ngFor="let encounter of allEncounters ">
 			<div class="encounter-details">
-				<p>{{encounter.date}}</p>
-				<p>Colonist ID: {{encounter.colonist_id}}</p>
-				<p>Alien Type: {{encounter.atype}}</p>
-				<p>Description: {{encounter.action}}</p>
+				<p><strong>{{encounter.date}}</strong> - <strong>{{encounter.atype}}</strong></p>
+				<p>{{encounter.action}}</p>
 			
 			</div>
-			<p class="encounter-resolution">
-			
-			</p>
 		</li>
 	</ul>
 	</div>

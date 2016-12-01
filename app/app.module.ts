@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpModule }      from '@angular/http';
+import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
 import { HomeComponent } from './home.component';
@@ -10,7 +11,7 @@ import { EncountersComponent } from './encounters.component';
 import { ReportComponent } from './report.component';
 
 @NgModule({
-  imports: [ BrowserModule, HttpModule,
+  imports: [ BrowserModule, HttpModule, FormsModule,
   RouterModule.forRoot([
       {
         path: 'home',
